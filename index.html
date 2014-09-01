@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="ott">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Company website</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 70px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavCtrl">
+    <div class="container">
+        <a class="navbar-brand" href="#/">Company website</a>
+        <ul class="nav navbar-nav">
+            <li><a href="#/">Home</a></li>
+            <li ng-if="isAdmin()"><a href="#/dashboard">Dashboard</a></li>
+            <li><a href="#/contact">Contact</a></li>
+        </ul>
+
+        <form class="navbar-form navbar-right">
+            <button ng-if="!loggedIn" type="button" class="btn btn-default" ng-click="openLoginWindow()">
+                <i class="glyphicon glyphicon-log-in"></i>
+                Sign In
+            </button>
+            <button ng-if="loggedIn" type="button" class="btn btn-default" ng-click="logout()">
+                <i class="glyphicon glyphicon-log-out"></i>
+                Sign Out
+            </button>
+        </form>
+
+        <span ng-if="loggedIn" class="navbar-text navbar-right">Welcome, <strong>{{user.name}}</strong>!</span>
+    </div>
+</nav>
+
+<div class="container" ng-view>
+    <!-- views go here -->
+</div>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="scripts/services.js"></script>
+<script src="scripts/controllers.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>

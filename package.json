@@ -1,0 +1,19 @@
+{
+  "name": "ott-task",
+  "version": "0.1.0",
+  "description": "Test task",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  },
+  "author": "Flammenmensch <maleventum@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "karma": "^0.12.23",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4"
+  }
+}

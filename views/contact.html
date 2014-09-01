@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-12" ng-if="infoBoxVisible">
+        <div class="alert alert-info">
+            Thank you for your feedback!
+            <button type="button" class="close" ng-click="hideInfoBox()">
+                <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="page-header">Contact us</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <form role="form" name="contactForm">
+            <div class="form-group" ng-class="{ 'has-error': contactForm.name.$dirty && contactForm.name.$invalid }">
+                <label class="control-label">Name</label>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-user"></i>
+                    </span>
+                    <input required ng-model="name" type="text" class="form-control" name="name" placeholder="Name">
+                </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': contactForm.email.$dirty && contactForm.email.$invalid }">
+                <label class="control-label">Email</label>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-envelope"></i>
+                    </span>
+                    <input required ng-model="email" type="email" class="form-control" name="email" placeholder="Email">
+                </div>
+                <span class="help-block">Your email will not be published.</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': contactForm.message.$dirty && contactForm.message.$invalid }">
+                <label class="control-label">Message</label>
+                <textarea required class="form-control" placeholder="Message" rows="5" name="message" ng-model="message"></textarea>
+            </div>
+            <button type="button" ng-disabled="loading || contactForm.$invalid" ng-click="send()" class="btn btn-lg btn-primary">{{loading ? 'Sending...' : 'Send message'}}</button>
+        </form>
+    </div>
+</div>
