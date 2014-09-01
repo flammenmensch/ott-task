@@ -16,6 +16,8 @@ angular.module('ott.controllers', [ 'ui.bootstrap', 'ott.services' ])
                 $scope.user.role = roles.GUEST;
 
                 $scope.loggedIn = false;
+
+                $scope.$emit('user:logout');
             });
         };
 

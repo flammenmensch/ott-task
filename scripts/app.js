@@ -25,6 +25,12 @@ angular.module('ott', [ 'ott.controllers', 'ott.services', 'ngRoute' ])
             }
         });
 
+        $rootScope.$on('user:logout', function (event) {
+            if (!authService.authorize($location.$$path, $rootScope.user.role)) {
+                $location.path('/');
+            }
+        });
+
         $rootScope.user = {
             username: 'Anonymous',
             role: roles.GUEST
